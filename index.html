@@ -1,0 +1,2836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maha e-Seva | Premium Government Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+--gold-light: #F4E4C1;
+--gold-main: #D4AF37;
+--gold-dark: #B8941E;
+--gold-metallic: #FFD700;
+--navy-deep: #1A2332;
+--navy-dark: #0F1419;
+--navy-medium: #2C3E50;
+--cream-light: #FAF8F3;
+--cream-dark: #F5F1E8;
+--bronze: #CD7F32;
+--pearl: #F8F6F0;
+--marble-light: #FCFCFC;
+--success: #2ECC71;
+--error: #E74C3C;
+--warning: #F39C12;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Montserrat', sans-serif;
+background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-dark) 100%);
+color: var(--cream-light);
+line-height: 1.7;
+overflow-x: hidden;
+position: relative;
+}
+
+/* Elegant Background Pattern */
+body::before {
+content: '';
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: 
+  linear-gradient(30deg, transparent 40%, rgba(212, 175, 55, 0.02) 40%, rgba(212, 175, 55, 0.02) 60%, transparent 60%),
+  linear-gradient(150deg, transparent 40%, rgba(212, 175, 55, 0.02) 40%, rgba(212, 175, 55, 0.02) 60%, transparent 60%);
+background-size: 100px 100px;
+pointer-events: none;
+z-index: 0;
+animation: patternShift 30s linear infinite;
+}
+
+@keyframes patternShift {
+0% { background-position: 0 0; }
+100% { background-position: 100px 100px; }
+}
+
+/* Spotlight Effect */
+body::after {
+content: '';
+position: fixed;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+pointer-events: none;
+z-index: 0;
+animation: spotlight 20s ease-in-out infinite;
+}
+
+@keyframes spotlight {
+0%, 100% { transform: translate(0, 0); }
+50% { transform: translate(30px, 30px); }
+}
+
+.container {
+max-width: 500px;
+margin: 0 auto;
+min-height: 100vh;
+position: relative;
+z-index: 1;
+box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+}
+
+.page {
+display: none;
+flex-direction: column;
+min-height: 100vh;
+background: linear-gradient(180deg, rgba(26, 35, 50, 0.95) 0%, rgba(15, 20, 25, 0.98) 100%);
+pointer-events: auto;
+}
+
+.page.active {
+display: flex;
+animation: pageReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+pointer-events: auto;
+}
+
+@keyframes pageReveal {
+0% { opacity: 0; transform: translateY(20px); filter: blur(10px); }
+100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* Luxurious Header */
+header {
+position: relative;
+padding: 48px 32px;
+background: linear-gradient(135deg, var(--navy-medium) 0%, var(--navy-deep) 100%);
+border-bottom: 3px solid;
+border-image: linear-gradient(90deg, transparent, var(--gold-main), transparent) 1;
+overflow: hidden;
+}
+
+header::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="art-deco" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0,10 L10,0 L20,10 L10,20 Z" fill="rgba(212,175,55,0.05)" /></pattern></defs><rect width="100" height="100" fill="url(%23art-deco)" /></svg>');
+opacity: 0.3;
+}
+
+.header-ornament {
+position: absolute;
+top: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 200px;
+height: 3px;
+background: linear-gradient(90deg, transparent, var(--gold-metallic), transparent);
+box-shadow: 0 0 20px var(--gold-main);
+}
+
+.header-top {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 32px;
+position: relative;
+z-index: 10;
+}
+
+.back-btn {
+background: rgba(212, 175, 55, 0.1);
+border: 2px solid var(--gold-main);
+color: var(--gold-light);
+padding: 10px 24px;
+border-radius: 4px;
+cursor: pointer;
+font-family: 'Montserrat', sans-serif;
+font-size: 12px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 2px;
+transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+position: relative;
+overflow: hidden;
+}
+
+.back-btn::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: radial-gradient(circle, var(--gold-main) 0%, transparent 70%);
+transform: translate(-50%, -50%);
+transition: width 0.6s ease, height 0.6s ease;
+}
+
+.back-btn:hover::before {
+width: 300px;
+height: 300px;
+}
+
+.back-btn:hover {
+background: rgba(212, 175, 55, 0.2);
+box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+transform: translateX(-4px);
+}
+
+.premium-badge {
+background: linear-gradient(135deg, #2ECC71, #27AE60);
+color: white;
+padding: 8px 20px;
+border-radius: 20px;
+font-size: 10px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 2px;
+box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+display: flex;
+align-items: center;
+gap: 6px;
+animation: badgeShine 3s ease-in-out infinite;
+}
+
+@keyframes badgeShine {
+0%, 100% { filter: brightness(1); }
+50% { filter: brightness(1.3); }
+}
+
+.premium-badge::before {
+content: '';
+width: 8px;
+height: 8px;
+background: white;
+border-radius: 50%;
+box-shadow: 0 0 10px white;
+animation: blink 1.5s ease-in-out infinite;
+}
+
+.header-content {
+text-align: center;
+position: relative;
+z-index: 10;
+}
+
+.header-icon {
+font-size: 72px;
+margin-bottom: 20px;
+display: inline-block;
+filter: drop-shadow(0 4px 20px rgba(212, 175, 55, 0.6));
+animation: iconElegantFloat 6s ease-in-out infinite;
+}
+
+@keyframes iconElegantFloat {
+0%, 100% { transform: translateY(0) scale(1); }
+50% { transform: translateY(-12px) scale(1.05); }
+}
+
+h1 {
+font-family: 'Cormorant Garamond', serif;
+font-size: 48px;
+font-weight: 700;
+letter-spacing: 3px;
+margin-bottom: 16px;
+background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-metallic) 50%, var(--gold-light) 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+position: relative;
+animation: titleShimmer 4s ease-in-out infinite;
+}
+
+@keyframes titleShimmer {
+0%, 100% { filter: brightness(1); }
+50% { filter: brightness(1.2); }
+}
+
+.header-subtitle {
+font-size: 13px;
+font-weight: 400;
+color: var(--gold-light);
+text-transform: uppercase;
+letter-spacing: 4px;
+opacity: 0.9;
+}
+
+.header-divider {
+width: 80px;
+height: 2px;
+background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+margin: 16px auto 0;
+}
+
+/* Content Area */
+.content {
+flex: 1;
+padding: 32px 24px 120px;
+position: relative;
+z-index: 10;
+pointer-events: auto;
+}
+
+/* Premium Card */
+.luxury-card {
+background: linear-gradient(135deg, rgba(44, 62, 80, 0.6) 0%, rgba(26, 35, 50, 0.8) 100%);
+backdrop-filter: blur(10px);
+border: 2px solid rgba(212, 175, 55, 0.2);
+border-radius: 12px;
+padding: 28px;
+margin-bottom: 24px;
+position: relative;
+transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+overflow: hidden;
+animation: cardFadeIn 0.8s ease-out backwards;
+z-index: 5;
+pointer-events: auto;
+}
+
+@keyframes cardFadeIn {
+from {
+opacity: 0;
+transform: translateY(40px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.luxury-card:nth-child(2) { animation-delay: 0.1s; }
+.luxury-card:nth-child(3) { animation-delay: 0.2s; }
+
+.luxury-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+}
+
+.luxury-card::after {
+content: '';
+position: absolute;
+top: -2px;
+left: -2px;
+right: -2px;
+bottom: -2px;
+background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+border-radius: 12px;
+opacity: 0;
+transition: opacity 0.4s ease;
+z-index: -1;
+}
+
+.luxury-card:hover {
+border-color: rgba(212, 175, 55, 0.5);
+box-shadow: 0 8px 40px rgba(212, 175, 55, 0.2);
+transform: translateY(-4px);
+}
+
+.luxury-card:hover::after {
+opacity: 1;
+}
+
+.section-header {
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 24px;
+padding-bottom: 16px;
+border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.section-icon {
+font-size: 28px;
+filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.5));
+}
+
+.section-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 24px;
+font-weight: 600;
+letter-spacing: 1px;
+color: var(--gold-light);
+}
+
+/* Premium Offers */
+.offers-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 16px;
+}
+
+.offer-card {
+background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 148, 30, 0.1) 100%);
+border: 2px solid rgba(212, 175, 55, 0.3);
+border-radius: 8px;
+padding: 24px 18px;
+text-align: center;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+position: relative;
+overflow: hidden;
+}
+
+.offer-card::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
+transform: translate(-50%, -50%);
+transition: width 0.6s ease, height 0.6s ease;
+}
+
+.offer-card:hover::before {
+width: 400px;
+height: 400px;
+}
+
+.offer-card:hover {
+border-color: var(--gold-main);
+box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+transform: translateY(-6px) scale(1.02);
+}
+
+.offer-card.active {
+background: linear-gradient(135deg, var(--gold-main) 0%, var(--gold-dark) 100%);
+border-color: var(--gold-metallic);
+box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5);
+animation: offerPulse 2s ease-in-out infinite;
+}
+
+@keyframes offerPulse {
+0%, 100% { box-shadow: 0 12px 40px rgba(212, 175, 55, 0.5); }
+50% { box-shadow: 0 16px 50px rgba(212, 175, 55, 0.7); }
+}
+
+.offer-icon {
+font-size: 42px;
+margin-bottom: 12px;
+display: inline-block;
+filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.6));
+}
+
+.offer-card.active .offer-icon {
+animation: iconBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes iconBounce {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.2) rotate(5deg); }
+}
+
+.offer-title {
+font-size: 13px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 10px;
+color: var(--cream-light);
+}
+
+.offer-card.active .offer-title {
+color: var(--navy-dark);
+}
+
+.offer-price {
+font-family: 'Cormorant Garamond', serif;
+font-size: 28px;
+font-weight: 700;
+color: var(--gold-metallic);
+}
+
+.offer-card.active .offer-price {
+color: var(--navy-dark);
+}
+
+/* Services Grid */
+.services-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 14px;
+}
+
+.service-card {
+background: rgba(26, 35, 50, 0.4);
+border: 1px solid rgba(212, 175, 55, 0.2);
+border-radius: 8px;
+padding: 20px 16px;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+position: relative;
+text-align: center;
+overflow: hidden;
+}
+
+.service-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 4px;
+background: linear-gradient(90deg, transparent, var(--gold-main), transparent);
+opacity: 0;
+transition: opacity 0.4s ease;
+}
+
+.service-card:hover::before {
+opacity: 1;
+}
+
+.service-card:hover {
+border-color: var(--gold-main);
+background: rgba(44, 62, 80, 0.6);
+box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2);
+transform: translateY(-4px);
+}
+
+.service-card.active {
+background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(184, 148, 30, 0.15) 100%);
+border-color: var(--gold-main);
+box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+}
+
+.service-card.active::before {
+opacity: 1;
+}
+
+.service-icon {
+font-size: 36px;
+margin-bottom: 12px;
+display: inline-block;
+filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5));
+}
+
+.service-name {
+font-size: 14px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+margin-bottom: 8px;
+color: var(--cream-light);
+}
+
+.service-price {
+font-size: 11px;
+color: var(--gold-light);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+/* Selection Panel */
+.selection-panel {
+background: linear-gradient(135deg, rgba(44, 62, 80, 0.8) 0%, rgba(26, 35, 50, 0.9) 100%);
+border: 2px dashed rgba(212, 175, 55, 0.6);
+border-radius: 12px;
+padding: 24px;
+min-height: 90px;
+backdrop-filter: blur(10px);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+margin-bottom: 20px;
+position: relative;
+z-index: 5;
+}
+
+.selection-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 18px;
+font-weight: 700;
+color: var(--gold-metallic);
+margin-bottom: 16px;
+text-transform: uppercase;
+letter-spacing: 2px;
+text-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+}
+
+.selection-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+}
+
+.selection-tag {
+background: linear-gradient(135deg, var(--gold-main) 0%, var(--gold-metallic) 100%);
+color: var(--navy-dark);
+padding: 12px 20px;
+border-radius: 8px;
+font-size: 14px;
+font-weight: 700;
+display: flex;
+align-items: center;
+gap: 12px;
+animation: tagSlideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes tagSlideIn {
+0% {
+transform: scale(0) rotate(-15deg);
+opacity: 0;
+}
+100% {
+transform: scale(1) rotate(0);
+opacity: 1;
+}
+}
+
+.tag-remove {
+cursor: pointer;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: rgba(26, 35, 50, 0.3);
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 800;
+font-size: 14px;
+transition: all 0.3s ease;
+}
+
+.tag-remove:hover {
+background: var(--error);
+color: white;
+transform: rotate(90deg) scale(1.2);
+}
+
+.empty-state {
+text-align: center;
+color: rgba(212, 175, 55, 0.7);
+font-size: 15px;
+font-style: italic;
+padding: 20px 0;
+font-weight: 500;
+}
+
+/* Form Elements */
+.form-group {
+margin-bottom: 24px;
+}
+
+.form-label {
+display: block;
+font-family: 'Cormorant Garamond', serif;
+font-size: 15px;
+font-weight: 600;
+color: var(--gold-light);
+margin-bottom: 10px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.form-label.required::after {
+content: ' *';
+color: var(--error);
+}
+
+.form-input,
+.form-textarea {
+width: 100%;
+padding: 16px 20px;
+background: rgba(26, 35, 50, 0.6);
+border: 2px solid rgba(212, 175, 55, 0.2);
+border-radius: 8px;
+font-family: 'Montserrat', sans-serif;
+font-size: 15px;
+font-weight: 500;
+color: var(--cream-light);
+transition: all 0.4s ease;
+position: relative;
+z-index: 10;
+pointer-events: auto;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+color: rgba(212, 175, 55, 0.4);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+outline: none;
+border-color: var(--gold-main);
+background: rgba(44, 62, 80, 0.8);
+box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+.form-input.error,
+.form-textarea.error {
+border-color: var(--error);
+box-shadow: 0 0 15px rgba(231, 76, 60, 0.3);
+}
+
+.form-textarea {
+min-height: 110px;
+resize: vertical;
+}
+
+.form-info {
+font-size: 12px;
+color: rgba(212, 175, 55, 0.6);
+margin-top: 8px;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.form-error {
+color: var(--error);
+font-size: 13px;
+margin-top: 8px;
+font-weight: 600;
+display: none;
+}
+
+.form-error.show {
+display: block;
+animation: errorShake 0.4s ease-out;
+}
+
+@keyframes errorShake {
+0%, 100% { transform: translateX(0); }
+25% { transform: translateX(-8px); }
+75% { transform: translateX(8px); }
+}
+
+/* Alerts */
+.alert {
+padding: 18px 24px;
+border-radius: 8px;
+margin-bottom: 20px;
+display: none;
+font-size: 14px;
+font-weight: 600;
+letter-spacing: 0.5px;
+border-left: 4px solid;
+animation: alertSlide 0.5s ease-out;
+position: relative;
+}
+
+@keyframes alertSlide {
+from {
+opacity: 0;
+transform: translateX(-40px);
+}
+to {
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+.alert.show {
+display: block;
+}
+
+.alert-success {
+background: rgba(46, 204, 113, 0.1);
+border-color: var(--success);
+color: var(--success);
+box-shadow: 0 4px 20px rgba(46, 204, 113, 0.2);
+}
+
+.alert-error {
+background: rgba(231, 76, 60, 0.1);
+border-color: var(--error);
+color: var(--error);
+box-shadow: 0 4px 20px rgba(231, 76, 60, 0.2);
+}
+
+.alert-warning {
+background: rgba(243, 156, 18, 0.1);
+border-color: var(--warning);
+color: var(--warning);
+box-shadow: 0 4px 20px rgba(243, 156, 18, 0.2);
+}
+
+.alert-close {
+position: absolute;
+right: 18px;
+top: 50%;
+transform: translateY(-50%);
+cursor: pointer;
+font-size: 22px;
+opacity: 0.7;
+transition: all 0.3s;
+}
+
+.alert-close:hover {
+opacity: 1;
+transform: translateY(-50%) rotate(90deg);
+}
+
+/* Buttons */
+.footer {
+position: fixed;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+width: 100%;
+max-width: 500px;
+padding: 20px 24px;
+background: linear-gradient(180deg, transparent 0%, rgba(15, 20, 25, 0.95) 20%, rgba(15, 20, 25, 0.98) 100%);
+backdrop-filter: blur(20px);
+border-top: 2px solid rgba(212, 175, 55, 0.2);
+z-index: 100;
+}
+
+.luxury-btn {
+width: 100%;
+padding: 18px 32px;
+border: 2px solid;
+border-radius: 8px;
+font-family: 'Montserrat', sans-serif;
+font-size: 14px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+cursor: pointer;
+transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin-bottom: 12px;
+position: relative;
+overflow: hidden;
+}
+
+.luxury-btn:last-child {
+margin-bottom: 0;
+}
+
+.luxury-btn::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 0;
+height: 0;
+background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+transform: translate(-50%, -50%);
+transition: width 0.6s ease, height 0.6s ease;
+}
+
+.luxury-btn:hover::before {
+width: 500px;
+height: 500px;
+}
+
+.luxury-btn:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+}
+
+.luxury-btn:disabled:hover {
+transform: none;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(--gold-main) 0%, var(--gold-metallic) 100%);
+border-color: var(--gold-metallic);
+color: var(--navy-dark);
+box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-primary:hover:not(:disabled) {
+box-shadow: 0 10px 35px rgba(212, 175, 55, 0.6);
+transform: translateY(-3px);
+}
+
+.btn-whatsapp {
+background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+border-color: #25D366;
+color: white;
+box-shadow: 0 6px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover:not(:disabled) {
+box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+transform: translateY(-3px);
+}
+
+.btn-secondary {
+background: rgba(44, 62, 80, 0.6);
+border-color: rgba(212, 175, 55, 0.3);
+color: var(--gold-light);
+box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary:hover:not(:disabled) {
+background: rgba(44, 62, 80, 0.8);
+border-color: var(--gold-main);
+box-shadow: 0 10px 35px rgba(212, 175, 55, 0.3);
+}
+
+.btn-icon {
+font-size: 18px;
+position: relative;
+z-index: 1;
+}
+
+.btn-text {
+position: relative;
+z-index: 1;
+}
+
+/* Loading */
+.loading {
+display: none;
+text-align: center;
+padding: 36px 0;
+}
+
+.loading.active {
+display: block;
+}
+
+.luxury-spinner {
+width: 70px;
+height: 70px;
+margin: 0 auto 20px;
+border: 4px solid rgba(212, 175, 55, 0.2);
+border-top: 4px solid var(--gold-main);
+border-right: 4px solid var(--gold-metallic);
+border-radius: 50%;
+animation: spinLuxury 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes spinLuxury {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+font-family: 'Cormorant Garamond', serif;
+font-size: 16px;
+font-weight: 600;
+color: var(--gold-light);
+text-transform: uppercase;
+letter-spacing: 3px;
+animation: textPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+0%, 100% { opacity: 0.5; }
+50% { opacity: 1; }
+}
+
+/* Offline Indicator */
+.offline-indicator {
+position: fixed;
+bottom: 24px;
+left: 50%;
+transform: translateX(-50%);
+background: linear-gradient(135deg, var(--error) 0%, #C0392B 100%);
+color: white;
+padding: 14px 32px;
+border-radius: 30px;
+font-family: 'Montserrat', sans-serif;
+font-size: 12px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2px;
+display: none;
+z-index: 10000;
+box-shadow: 0 8px 30px rgba(231, 76, 60, 0.5);
+animation: slideUp 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.offline-indicator.show {
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+@keyframes slideUp {
+0% {
+opacity: 0;
+transform: translateX(-50%) translateY(50px);
+}
+100% {
+opacity: 1;
+transform: translateX(-50%) translateY(0);
+}
+}
+
+/* Summary Card */
+.summary-card {
+background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(184, 148, 30, 0.08) 100%);
+border: 2px solid rgba(212, 175, 55, 0.3);
+border-radius: 12px;
+padding: 24px;
+margin-bottom: 28px;
+}
+
+.summary-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 16px;
+font-weight: 600;
+color: var(--gold-light);
+margin-bottom: 18px;
+text-transform: uppercase;
+letter-spacing: 2px;
+}
+
+.summary-list {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.summary-item {
+font-size: 14px;
+font-weight: 500;
+padding: 14px 18px;
+background: rgba(44, 62, 80, 0.4);
+border-left: 4px solid var(--gold-main);
+border-radius: 4px;
+}
+
+@keyframes selectionBounce {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+
+@keyframes gentleShake {
+0%, 100% { transform: translateX(0); }
+25% { transform: translateX(-5px); }
+75% { transform: translateX(5px); }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+h1 {
+font-size: 38px;
+letter-spacing: 2px;
+}
+
+.header-icon {
+font-size: 56px;
+}
+
+.content {
+padding: 28px 20px 120px;
+}
+
+.offers-grid,
+.services-grid {
+gap: 12px;
+}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div id="offlineIndicator" class="offline-indicator">
+<span>📡</span>
+<span>Connection Lost</span>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="servicesPage" class="page active">
+<header>
+<div class="header-ornament"></div>
+<div class="header-top">
+<div></div>
+<div class="premium-badge">Online</div>
+</div>
+<div class="header-content">
+<div class="header-icon">🏛️</div>
+<h1>Maha e-Seva</h1>
+<p class="header-subtitle">Exquisite Service Excellence</p>
+<div class="header-divider"></div>
+</div>
+</header>
+
+<div class="content">
+<!-- Configuration Alert -->
+<div id="configAlert" class="alert alert-warning">
+<span class="alert-close" onclick="closeAlert('configAlert')">×</span>
+⚠️ Configuration Required: Please Set WhatsApp Number
+</div>
+
+<!-- Premium Offers -->
+<div class="luxury-card">
+<div class="section-header">
+<span class="section-icon">⭐</span>
+<h2 class="section-title">Signature Services</h2>
+</div>
+<div class="offers-grid">
+<div class="offer-card" onclick="toggleService(this, 'Ladki Bahin KYC - ₹200')">
+<div class="offer-icon">👧</div>
+<div class="offer-title">Ladki Bahin KYC</div>
+<div class="offer-price">₹200</div>
+</div>
+<div class="offer-card" onclick="toggleService(this, 'Aadhar Address Update - ₹200')">
+<div class="offer-icon">📍</div>
+<div class="offer-title">Aadhar Update</div>
+<div class="offer-price">₹200</div>
+</div>
+<div class="offer-card" onclick="toggleService(this, 'New/Modify PAN Card')">
+<div class="offer-icon">🆔</div>
+<div class="offer-title">PAN Card</div>
+<div class="offer-price" style="font-size: 13px;">New/Modify</div>
+</div>
+<div class="offer-card" onclick="toggleService(this, 'EPFO Services')">
+<div class="offer-icon">💰</div>
+<div class="offer-title">EPFO Services</div>
+<div class="offer-price" style="font-size: 13px;">All Types</div>
+</div>
+</div>
+</div>
+
+<!-- Main Services -->
+<div class="luxury-card">
+<div class="section-header">
+<span class="section-icon">📋</span>
+<h2 class="section-title">Essential Services</h2>
+</div>
+<div class="services-grid">
+<div class="service-card" onclick="toggleService(this, 'New/Renew Passport')">
+<div class="service-icon">📘</div>
+<div class="service-name">Passport</div>
+<div class="service-price">New/Renewal</div>
+</div>
+<div class="service-card" onclick="toggleService(this, 'RTO Related (DL, RC)')">
+<div class="service-icon">🚗</div>
+<div class="service-name">RTO Services</div>
+<div class="service-price">DL, RC</div>
+</div>
+<div class="service-card" onclick="toggleService(this, 'Health/Vehicle Insurance')">
+<div class="service-icon">🛡️</div>
+<div class="service-name">Insurance</div>
+<div class="service-price">Health/Vehicle</div>
+</div>
+<div class="service-card" onclick="toggleService(this, 'Shop Act/Gumasta Licence')">
+<div class="service-icon">🏪</div>
+<div class="service-name">Shop Act</div>
+<div class="service-price">Gumasta</div>
+</div>
+<div class="service-card" onclick="toggleService(this, 'MSME/Udyog Aadhar')">
+<div class="service-icon">🏭</div>
+<div class="service-name">MSME/Udyog</div>
+<div class="service-price">Registration</div>
+</div>
+<div class="service-card" onclick="toggleService(this, 'GST Licence')">
+<div class="service-icon">💼</div>
+<div class="service-name">GST Licence</div>
+<div class="service-price">Registration</div>
+</div>
+<div class="service-card" onclick="toggleService(this, 'FSSAI Food Licence')">
+<div class="service-icon">🍽️</div>
+<div class="service-name">FSSAI Licence</div>
+<div class="service-price">Food Business</div>
+</div>
+</div>
+</div>
+
+<!-- Selection Panel -->
+<div style="padding: 0 24px; margin-bottom: 20px;">
+<div class="selection-panel">
+<div class="selection-title">✨ Your Selection</div>
+<div class="selection-tags" id="selectedList">
+<div class="empty-state">No services selected yet</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<button class="luxury-btn btn-primary" onclick="goToBookingPage()">
+<span class="btn-icon">📝</span>
+<span class="btn-text">Proceed to Booking</span>
+</button>
+<button class="luxury-btn btn-whatsapp" onclick="sendWhatsApp()">
+<span class="btn-icon">💬</span>
+<span class="btn-text">WhatsApp Inquiry</span>
+</button>
+</div>
+</div>
+
+<!-- BOOKING PAGE -->
+<div id="bookingPage" class="page">
+<header>
+<div class="header-ornament"></div>
+<div class="header-top">
+<button class="back-btn" onclick="goToServicesPage()">
+<span>← Back</span>
+</button>
+<div class="premium-badge">Online</div>
+</div>
+<div class="header-content">
+<div class="header-icon">📝</div>
+<h1>Your Details</h1>
+<p class="header-subtitle">Complete Your Request</p>
+<div class="header-divider"></div>
+</div>
+</header>
+
+<div class="content">
+<!-- Alerts -->
+<div id="successAlert" class="alert alert-success">
+<span class="alert-close" onclick="closeAlert('successAlert')">×</span>
+<div id="successMessage">✓ Request Submitted Successfully</div>
+</div>
+
+<div id="errorAlert" class="alert alert-error">
+<span class="alert-close" onclick="closeAlert('errorAlert')">×</span>
+<div id="errorMessage">✗ Error: Please Try Again</div>
+</div>
+
+<div id="warningAlert" class="alert alert-warning">
+<span class="alert-close" onclick="closeAlert('warningAlert')">×</span>
+<div id="warningMessage">⚠️ Please Check Your Input</div>
+</div>
+
+<!-- Service Summary -->
+<div class="summary-card">
+<div class="summary-title">Selected Services</div>
+<div class="summary-list" id="summaryList"></div>
+</div>
+
+<!-- Booking Form -->
+<div class="luxury-card">
+<form id="bookingForm" novalidate>
+<div class="form-group">
+<label class="form-label required">Full Name</label>
+<input type="text" class="form-input" id="fullName" placeholder="Enter your full name">
+<div class="form-error" id="fullNameError">Please enter your full name</div>
+</div>
+
+<div class="form-group">
+<label class="form-label required">Mobile Number</label>
+<input type="tel" class="form-input" id="mobile" placeholder="10-digit mobile number" maxlength="10">
+<div class="form-info">We'll contact you on this number</div>
+<div class="form-error" id="mobileError">Please enter a valid 10-digit number</div>
+</div>
+
+<div class="form-group">
+<label class="form-label">Email Address</label>
+<input type="email" class="form-input" id="email" placeholder="your.email@example.com">
+<div class="form-error" id="emailError">Please enter a valid email</div>
+</div>
+
+<div class="form-group">
+<label class="form-label required">Address</label>
+<textarea class="form-textarea" id="address" placeholder="Enter your complete address"></textarea>
+<div class="form-error" id="addressError">Please enter your address</div>
+</div>
+
+<div class="form-group">
+<label class="form-label">Preferred Date</label>
+<input type="date" class="form-input" id="preferredDate">
+</div>
+
+<div class="form-group">
+<label class="form-label">Additional Notes</label>
+<textarea class="form-textarea" id="notes" placeholder="Any special requirements or information"></textarea>
+</div>
+</form>
+
+<div id="loadingIndicator" class="loading">
+<div class="luxury-spinner"></div>
+<div class="loading-text">Processing Request...</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<button class="luxury-btn btn-whatsapp" onclick="submitBooking()" id="submitBtn">
+<span class="btn-icon">✓</span>
+<span class="btn-text">Submit Request</span>
+</button>
+<button class="luxury-btn btn-secondary" onclick="goToServicesPage()">
+<span class="btn-icon">←</span>
+<span class="btn-text">Return</span>
+</button>
+</div>
+</div>
+</div>
+
+<script src="config.js"></script>
+<script>
+// Fallback CONFIG
+if (typeof CONFIG === 'undefined') {
+  console.warn('config.js not found, using default empty config');
+  window.CONFIG = {
+    WHATSAPP_NUMBER: '',
+    SCRIPT_URL: '',
+    EMAIL_ADDRESS: ''
+  };
+}
+
+// ============================================================================
+// ERROR HANDLING & VALIDATION
+// ============================================================================
+
+const ErrorHandler = {
+  showAlert(type, message, duration = 5000) {
+    const alertId = `${type}Alert`;
+    const alert = document.getElementById(alertId);
+    const messageEl = document.getElementById(`${type}Message`);
+    
+    if (!alert || !messageEl) return;
+
+    messageEl.innerHTML = message;
+    alert.classList.add('show');
+    
+    if (duration > 0) {
+      setTimeout(() => alert.classList.remove('show'), duration);
+    }
+  },
+
+  showValidationError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorEl = document.getElementById(`${fieldId}Error`);
+    
+    if (field && errorEl) {
+      field.classList.add('error');
+      errorEl.textContent = message;
+      errorEl.classList.add('show');
+    }
+  },
+
+  clearValidationError(fieldId) {
+    const field = document.getElementById(fieldId);
+    const errorEl = document.getElementById(`${fieldId}Error`);
+    
+    if (field && errorEl) {
+      field.classList.remove('error');
+      errorEl.classList.remove('show');
+    }
+  },
+
+  clearAllValidationErrors() {
+    ['fullName', 'mobile', 'email', 'address'].forEach(field => 
+      this.clearValidationError(field)
+    );
+  },
+
+  handleError(error, context = 'Operation') {
+    console.error(`${context} error:`, error);
+    let message = 'An unexpected error occurred. Please try again.';
+    if (error.message) message = error.message;
+    else if (typeof error === 'string') message = error;
+    this.showAlert('error', message);
+  }
+};
+
+const Validator = {
+  isValidName(name) {
+    return name && name.trim().length >= 2;
+  },
+
+  isValidMobile(mobile) {
+    return /^[6-9]\d{9}$/.test(mobile);
+  },
+
+  isValidEmail(email) {
+    if (!email) return true;
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  },
+
+  isValidAddress(address) {
+    return address && address.trim().length >= 10;
+  },
+
+  validateForm() {
+    let isValid = true;
+    ErrorHandler.clearAllValidationErrors();
+
+    const fullName = document.getElementById('fullName').value.trim();
+    if (!this.isValidName(fullName)) {
+      ErrorHandler.showValidationError('fullName', 'Please enter your full name (minimum 2 characters)');
+      isValid = false;
+    }
+
+    const mobile = document.getElementById('mobile').value.trim();
+    if (!this.isValidMobile(mobile)) {
+      ErrorHandler.showValidationError('mobile', 'Please enter a valid 10-digit mobile number starting with 6-9');
+      isValid = false;
+    }
+
+    const email = document.getElementById('email').value.trim();
+    if (email && !this.isValidEmail(email)) {
+      ErrorHandler.showValidationError('email', 'Please enter a valid email address');
+      isValid = false;
+    }
+
+    const address = document.getElementById('address').value.trim();
+    if (!this.isValidAddress(address)) {
+      ErrorHandler.showValidationError('address', 'Please enter your complete address (minimum 10 characters)');
+      isValid = false;
+    }
+
+    return isValid;
+  }
+};
+
+const ConfigValidator = {
+  isConfigured() {
+    if (typeof CONFIG === 'undefined') return false;
+    return CONFIG.WHATSAPP_NUMBER && 
+           !CONFIG.WHATSAPP_NUMBER.includes('YOUR_') &&
+           CONFIG.WHATSAPP_NUMBER.length >= 10;
+  },
+
+  checkConfiguration() {
+    if (!this.isConfigured()) {
+      document.getElementById('configAlert').classList.add('show');
+      return true;
+    }
+    return true;
+  },
+
+  getWhatsAppNumber() {
+    if (!this.isConfigured()) {
+      throw new Error('WhatsApp number not configured');
+    }
+    return CONFIG.WHATSAPP_NUMBER;
+  },
+
+  hasGoogleSheets() {
+    return CONFIG.SCRIPT_URL && 
+           !CONFIG.SCRIPT_URL.includes('YOUR_') &&
+           CONFIG.SCRIPT_URL.startsWith('https://');
+  }
+};
+
+const NetworkHandler = {
+  isOnline() {
+    return navigator.onLine;
+  },
+
+  showOfflineIndicator() {
+    document.getElementById('offlineIndicator').classList.add('show');
+  },
+
+  hideOfflineIndicator() {
+    document.getElementById('offlineIndicator').classList.remove('show');
+  },
+
+  checkConnection() {
+    if (!this.isOnline()) {
+      this.showOfflineIndicator();
+      ErrorHandler.showAlert('warning', 'You appear to be offline. Some features may not work.');
+      return false;
+    }
+    return true;
+  }
+};
+
+window.addEventListener('online', () => {
+  NetworkHandler.hideOfflineIndicator();
+  ErrorHandler.showAlert('success', 'Your connection has been restored.', 3000);
+});
+
+window.addEventListener('offline', () => {
+  NetworkHandler.showOfflineIndicator();
+});
+
+// ============================================================================
+// APPLICATION CODE
+// ============================================================================
+
+let selectedServices = [];
+
+function toggleService(element, serviceName) {
+  element.classList.toggle('active');
+
+  if (element.classList.contains('active')) {
+    // 🎉 Feel-good: Play emoji-specific sound
+    playEmojiSound(serviceName);
+    
+    if (!selectedServices.includes(serviceName)) {
+      selectedServices.push(serviceName);
+    }
+    
+    // Add a small celebration bounce
+    element.style.animation = 'selectionBounce 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+    setTimeout(() => {
+      element.style.animation = '';
+    }, 400);
+  } else {
+    // 🎵 Feel-good: Play removal sound
+    playRemoveSound();
+    
+    selectedServices = selectedServices.filter(s => s !== serviceName);
+  }
+
+  updateSelectedList();
+}
+
+// ============================================================================
+// 🎵 EMOJI-SPECIFIC SOUND EFFECTS
+// ============================================================================
+
+function playEmojiSound(serviceName) {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  
+  // Detect which service based on name and play appropriate sound
+  if (serviceName.includes('RTO') || serviceName.includes('DL') || serviceName.includes('RC')) {
+    playCarSound(audioCtx); // 🚗 Car horn
+  } else if (serviceName.includes('Passport')) {
+    playPassportSound(audioCtx); // 📘 Whoosh/travel sound
+  } else if (serviceName.includes('Insurance')) {
+    playShieldSound(audioCtx); // 🛡️ Protection shield
+  } else if (serviceName.includes('Shop Act') || serviceName.includes('Gumasta')) {
+    playShopSound(audioCtx); // 🏪 Cash register
+  } else if (serviceName.includes('MSME') || serviceName.includes('Udyog')) {
+    playFactorySound(audioCtx); // 🏭 Industrial hum
+  } else if (serviceName.includes('GST')) {
+    playBusinessSound(audioCtx); // 💼 Professional beep
+  } else if (serviceName.includes('FSSAI') || serviceName.includes('Food')) {
+    playFoodSound(audioCtx); // 🍽️ Ding/bell
+  } else if (serviceName.includes('Ladki Bahin')) {
+    playWelcomeSound(audioCtx); // 👧 Gentle chime
+  } else if (serviceName.includes('Aadhar')) {
+    playLocationSound(audioCtx); // 📍 GPS beep
+  } else if (serviceName.includes('PAN')) {
+    playCardSound(audioCtx); // 🆔 Card swipe
+  } else if (serviceName.includes('EPFO')) {
+    playMoneySound(audioCtx); // 💰 Coins
+  } else {
+    playSelectionSound(); // Default
+  }
+}
+
+// 🚗 Car horn sound for RTO services
+function playCarSound(audioCtx) {
+  const osc1 = audioCtx.createOscillator();
+  const osc2 = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc1.connect(gain);
+  osc2.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Car horn is typically two tones
+  osc1.frequency.setValueAtTime(400, audioCtx.currentTime);
+  osc2.frequency.setValueAtTime(500, audioCtx.currentTime);
+  osc1.type = 'square';
+  osc2.type = 'square';
+  
+  gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+  
+  osc1.start(audioCtx.currentTime);
+  osc2.start(audioCtx.currentTime);
+  osc1.stop(audioCtx.currentTime + 0.25);
+  osc2.stop(audioCtx.currentTime + 0.25);
+}
+
+// 📘 Passport whoosh/travel sound
+function playPassportSound(audioCtx) {
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Swoosh upward for travel
+  osc.frequency.setValueAtTime(300, audioCtx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.4);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.4);
+}
+
+// 🛡️ Shield protection sound
+function playShieldSound(audioCtx) {
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Strong, protective tone
+  osc.frequency.setValueAtTime(200, audioCtx.currentTime);
+  osc.frequency.setValueAtTime(250, audioCtx.currentTime + 0.1);
+  osc.type = 'sawtooth';
+  
+  gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.3);
+}
+
+// 🏪 Cash register ding
+function playShopSound(audioCtx) {
+  const frequencies = [1047, 1319]; // C and E for cash register
+  
+  frequencies.forEach((freq, index) => {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.3);
+    }, index * 80);
+  });
+}
+
+// 🏭 Factory/industrial hum
+function playFactorySound(audioCtx) {
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Low industrial hum
+  osc.frequency.setValueAtTime(120, audioCtx.currentTime);
+  osc.frequency.setValueAtTime(150, audioCtx.currentTime + 0.15);
+  osc.type = 'sawtooth';
+  
+  gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.3);
+}
+
+// 💼 Business/professional beep
+function playBusinessSound(audioCtx) {
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Clean, professional tone
+  osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.2);
+}
+
+// 🍽️ Restaurant bell/ding
+function playFoodSound(audioCtx) {
+  const frequencies = [2093, 2637]; // High C and E for bell
+  
+  frequencies.forEach((freq, index) => {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.4);
+    }, index * 60);
+  });
+}
+
+// 👧 Gentle welcome chime
+function playWelcomeSound(audioCtx) {
+  const frequencies = [659, 784, 988]; // E, G, B for welcoming
+  
+  frequencies.forEach((freq, index) => {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.4);
+    }, index * 100);
+  });
+}
+
+// 📍 GPS location beep
+function playLocationSound(audioCtx) {
+  for (let i = 0; i < 3; i++) {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(1200, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.1);
+    }, i * 120);
+  }
+}
+
+// 🆔 Card swipe sound
+function playCardSound(audioCtx) {
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Quick swipe sound
+  osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.15);
+  osc.type = 'sawtooth';
+  
+  gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.15);
+}
+
+// 💰 Money/coins sound
+function playMoneySound(audioCtx) {
+  // Multiple coin clinks
+  for (let i = 0; i < 4; i++) {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(1800 + (i * 100), audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.15);
+    }, i * 60);
+  }
+}
+
+function updateSelectedList() {
+  const list = document.getElementById('selectedList');
+
+  if (selectedServices.length === 0) {
+    list.innerHTML = '<div class="empty-state">No services selected yet</div>';
+    return;
+  }
+
+  list.innerHTML = selectedServices.map(service => `
+    <div class="selection-tag">
+      <span>${service}</span>
+      <span class="tag-remove" onclick="removeService('${service.replace(/'/g, "\\'")}')">×</span>
+    </div>
+  `).join('');
+}
+
+function removeService(serviceName) {
+  // 🎵 Feel-good: Play removal sound
+  playRemoveSound();
+  
+  selectedServices = selectedServices.filter(s => s !== serviceName);
+
+  document.querySelectorAll('.service-card, .offer-card').forEach(card => {
+    const text = card.textContent.trim();
+    if (text.includes(serviceName.split(' - ')[0])) {
+      card.classList.remove('active');
+      // Add a small fade effect
+      card.style.transition = 'opacity 0.2s ease';
+      card.style.opacity = '0.5';
+      setTimeout(() => {
+        card.style.opacity = '1';
+      }, 200);
+    }
+  });
+
+  updateSelectedList();
+}
+
+function goToBookingPage() {
+  if (selectedServices.length === 0) {
+    ErrorHandler.showAlert('warning', 'Please select at least one service to proceed.');
+    // Add a gentle shake to service cards to guide user
+    document.querySelectorAll('.service-card, .offer-card').forEach(card => {
+      card.style.animation = 'gentleShake 0.5s ease-in-out';
+      setTimeout(() => {
+        card.style.animation = '';
+      }, 500);
+    });
+    return;
+  }
+
+  // 🎉 Feel-good: Play positive sound on successful navigation
+  playPositiveClick();
+
+  ConfigValidator.checkConfiguration();
+
+  updateServiceSummary();
+  
+  // Smooth fade out current page
+  const servicesPage = document.getElementById('servicesPage');
+  servicesPage.style.transition = 'opacity 0.3s ease-out';
+  servicesPage.style.opacity = '0';
+  
+  setTimeout(() => {
+    servicesPage.classList.remove('active');
+    const bookingPage = document.getElementById('bookingPage');
+    bookingPage.classList.add('active');
+    bookingPage.style.opacity = '0';
+    
+    // Smooth fade in new page
+    setTimeout(() => {
+      bookingPage.style.transition = 'opacity 0.5s ease-in';
+      bookingPage.style.opacity = '1';
+    }, 50);
+    
+    window.scrollTo(0, 0);
+  }, 300);
+}
+
+function goToServicesPage() {
+  // 🎉 Feel-good: Play positive sound
+  playPositiveClick();
+  
+  closeAlert('successAlert');
+  closeAlert('errorAlert');
+  closeAlert('warningAlert');
+  
+  // Smooth fade out current page
+  const bookingPage = document.getElementById('bookingPage');
+  bookingPage.style.transition = 'opacity 0.3s ease-out';
+  bookingPage.style.opacity = '0';
+  
+  setTimeout(() => {
+    bookingPage.classList.remove('active');
+    const servicesPage = document.getElementById('servicesPage');
+    servicesPage.classList.add('active');
+    servicesPage.style.opacity = '0';
+    
+    // Smooth fade in new page
+    setTimeout(() => {
+      servicesPage.style.transition = 'opacity 0.5s ease-in';
+      servicesPage.style.opacity = '1';
+    }, 50);
+    
+    window.scrollTo(0, 0);
+  }, 300);
+}
+
+// ============================================================================
+// 🎵 FEEL-GOOD SOUND EFFECTS
+// ============================================================================
+
+function playPositiveClick() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.15);
+}
+
+function playSelectionSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  
+  // Two-note ascending sound for selection
+  [600, 800].forEach((freq, index) => {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.2);
+    }, index * 50);
+  });
+}
+
+function playRemoveSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  // Descending tone for removal
+  osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+  osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.2);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.2);
+}
+
+function updateServiceSummary() {
+  const summaryList = document.getElementById('summaryList');
+  summaryList.innerHTML = selectedServices.map(service => `
+    <div class="summary-item">• ${service}</div>
+  `).join('');
+}
+
+function closeAlert(alertId) {
+  const alert = document.getElementById(alertId);
+  if (alert) alert.classList.remove('show');
+}
+
+function sendWhatsApp() {
+  try {
+    if (selectedServices.length === 0) {
+      ErrorHandler.showAlert('warning', 'Please select at least one service before sending inquiry.');
+      return;
+    }
+
+    if (!ConfigValidator.checkConfiguration()) {
+      return;
+    }
+
+    if (!NetworkHandler.checkConnection()) {
+      return;
+    }
+
+    const whatsappNumber = ConfigValidator.getWhatsAppNumber();
+    const message = `Hello, I'm interested in the following Maha e-Seva services:\n\n${selectedServices.map((s, i) => `${i + 1}. ${s}`).join('\n')}\n\nPlease provide me with the pricing and next steps.`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
+    ErrorHandler.showAlert('success', 'Opening WhatsApp...', 3000);
+      
+  } catch (error) {
+    ErrorHandler.handleError(error, 'WhatsApp');
+  }
+}
+
+async function saveToGoogleSheet(fullName, mobile, email, address, preferredDate, notes, timestamp) {
+  if (!ConfigValidator.hasGoogleSheets()) {
+    return { success: false, reason: 'not_configured' };
+  }
+
+  try {
+    const params = new URLSearchParams({
+      timestamp, fullName, mobile, email, address, preferredDate,
+      services: selectedServices.join(', '),
+      notes
+    });
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+    await fetch(CONFIG.SCRIPT_URL + '?' + params.toString(), {
+      method: 'POST',
+      mode: 'no-cors',
+      signal: controller.signal
+    });
+
+    clearTimeout(timeoutId);
+    return { success: true };
+    
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      return { success: false, reason: 'timeout' };
+    }
+    return { success: false, reason: 'error', error };
+  }
+}
+
+async function submitBooking() {
+  try {
+    closeAlert('successAlert');
+    closeAlert('errorAlert');
+    closeAlert('warningAlert');
+
+    if (!Validator.validateForm()) {
+      ErrorHandler.showAlert('warning', 'Please fill in all required fields correctly.');
+      return;
+    }
+
+    if (!ConfigValidator.checkConfiguration()) {
+      return;
+    }
+
+    if (!NetworkHandler.checkConnection()) {
+      ErrorHandler.showAlert('error', 'Please check your internet connection and try again.');
+      return;
+    }
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+
+    // 🎉 LUXURY CELEBRATION
+    triggerLuxuryCelebration();
+
+    const fullName = document.getElementById('fullName').value.trim();
+    const mobile = document.getElementById('mobile').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const preferredDate = document.getElementById('preferredDate').value;
+    const notes = document.getElementById('notes').value.trim();
+    const timestamp = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+    document.getElementById('loadingIndicator').classList.add('active');
+
+    const sheetResult = await saveToGoogleSheet(
+      fullName, mobile, email, address, preferredDate, notes, timestamp
+    );
+
+    sendBookingViaWhatsApp(
+      fullName, mobile, email, address, preferredDate, notes, timestamp
+    );
+
+    document.getElementById('loadingIndicator').classList.remove('active');
+    
+    let successMsg = '✓ Your request has been submitted successfully!<br><small style="font-size: 12px;">';
+    
+    if (sheetResult.success) {
+      successMsg += '• Saved to database ✓<br>';
+    } else if (sheetResult.reason === 'not_configured') {
+      successMsg += '• Database not configured<br>';
+    } else {
+      successMsg += '• Database save failed (sent via WhatsApp)<br>';
+    }
+    
+    successMsg += '• Opening WhatsApp...</small>';
+    
+    ErrorHandler.showAlert('success', successMsg, 5000);
+
+    document.getElementById('bookingForm').reset();
+    selectedServices = [];
+    updateSelectedList();
+    window.scrollTo(0, 0);
+
+    submitBtn.disabled = false;
+
+    setTimeout(() => {
+      goToServicesPage();
+    }, 3000);
+
+  } catch (error) {
+    document.getElementById('loadingIndicator').classList.remove('active');
+    document.getElementById('submitBtn').disabled = false;
+    ErrorHandler.handleError(error, 'Booking submission');
+  }
+}
+
+function sendBookingViaWhatsApp(fullName, mobile, email, address, preferredDate, notes, timestamp) {
+  try {
+    const whatsappNumber = ConfigValidator.getWhatsAppNumber();
+    
+    const message = `🏛️ *MAHA E-SEVA BOOKING*
+
+📅 *Date:* ${timestamp}
+
+👤 *Customer Details:*
+• Name: ${fullName}
+• Mobile: ${mobile}
+• Email: ${email || 'Not provided'}
+• Address: ${address}
+
+📋 *Services Requested:*
+${selectedServices.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+
+📆 *Preferred Date:* ${preferredDate || 'Not specified'}
+
+📝 *Additional Notes:*
+${notes || 'None'}
+
+---
+Please confirm this booking and provide further details.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappURL, '_blank');
+    
+  } catch (error) {
+    ErrorHandler.handleError(error, 'WhatsApp booking');
+  }
+}
+
+// ============================================================================
+// 🎊 LUXURY CELEBRATION EFFECT
+// ============================================================================
+
+function triggerLuxuryCelebration() {
+  const celebration = document.createElement('div');
+  celebration.id = 'celebrationEffect';
+  celebration.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99999;
+  `;
+  document.body.appendChild(celebration);
+
+  // Play elegant success sounds
+  playLuxurySounds();
+
+  // Golden flash
+  createGoldenFlash();
+  
+  // Golden confetti
+  createGoldenConfetti(60);
+  
+  // Sparkle particles
+  createSparkles();
+  
+  // Elegant ripples
+  createElegantRipples();
+  
+  // Haptic feedback
+  if (navigator.vibrate) {
+    navigator.vibrate([50, 30, 50, 30, 100]);
+  }
+
+  setTimeout(() => {
+    const celebrationEl = document.getElementById('celebrationEffect');
+    if (celebrationEl) celebrationEl.remove();
+  }, 4500);
+}
+
+function playLuxurySounds() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  
+  playChime(audioCtx, 0, 784);        // G5
+  playChime(audioCtx, 0.15, 1047);    // C6
+  playChime(audioCtx, 0.3, 1319);     // E6
+  playGoldenWhoosh(audioCtx, 0);
+  playSparkleSound(audioCtx, 0.5);
+}
+
+function playChime(audioCtx, delay, freq) {
+  setTimeout(() => {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    osc.type = 'sine';
+    
+    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.8);
+    
+    osc.start(audioCtx.currentTime);
+    osc.stop(audioCtx.currentTime + 0.8);
+  }, delay * 1000);
+}
+
+function playGoldenWhoosh(audioCtx, delay) {
+  setTimeout(() => {
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    
+    osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.4);
+    osc.type = 'sawtooth';
+    
+    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4);
+    
+    osc.start(audioCtx.currentTime);
+    osc.stop(audioCtx.currentTime + 0.4);
+  }, delay * 1000);
+}
+
+function playSparkleSound(audioCtx, delay) {
+  setTimeout(() => {
+    for (let i = 0; i < 3; i++) {
+      setTimeout(() => {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        
+        osc.frequency.setValueAtTime(2500 + (i * 300), audioCtx.currentTime);
+        osc.type = 'sine';
+        
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+        
+        osc.start(audioCtx.currentTime);
+        osc.stop(audioCtx.currentTime + 0.2);
+      }, i * 100);
+    }
+  }, delay * 1000);
+}
+
+function createGoldenFlash() {
+  const flash = document.createElement('div');
+  flash.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(212,175,55,0.6) 0%, transparent 70%);
+    animation: goldenFlash 0.8s ease-out;
+    z-index: 99999;
+  `;
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes goldenFlash {
+      0% { opacity: 0; transform: scale(0.5); }
+      40% { opacity: 1; transform: scale(1.3); }
+      100% { opacity: 0; transform: scale(1.8); }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  document.getElementById('celebrationEffect').appendChild(flash);
+  setTimeout(() => {
+    flash.remove();
+    style.remove();
+  }, 800);
+}
+
+function createGoldenConfetti(count) {
+  const colors = ['#D4AF37', '#FFD700', '#F4E4C1', '#B8941E', '#CD7F32'];
+  const celebration = document.getElementById('celebrationEffect');
+  
+  for (let i = 0; i < count; i++) {
+    setTimeout(() => {
+      const confetti = document.createElement('div');
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      const startX = Math.random() * window.innerWidth;
+      const startY = window.innerHeight / 2;
+      const endX = startX + (Math.random() - 0.5) * 500;
+      const endY = Math.random() * window.innerHeight;
+      const rotation = Math.random() * 1080;
+      const size = Math.random() * 10 + 6;
+      const duration = Math.random() * 2.5 + 2;
+      
+      confetti.style.cssText = `
+        position: fixed;
+        left: ${startX}px;
+        top: ${startY}px;
+        width: ${size}px;
+        height: ${size}px;
+        background: ${color};
+        box-shadow: 0 0 15px ${color};
+        border-radius: ${Math.random() > 0.5 ? '50%' : '2px'};
+        animation: confettiFall ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        z-index: 99999;
+      `;
+      
+      const keyframes = `
+        @keyframes confettiFall {
+          0% {
+            transform: translate(0, 0) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translate(${endX - startX}px, ${endY - startY}px) rotate(${rotation}deg);
+            opacity: 0;
+          }
+        }
+      `;
+      
+      const style = document.createElement('style');
+      style.textContent = keyframes;
+      document.head.appendChild(style);
+      
+      celebration.appendChild(confetti);
+      
+      setTimeout(() => {
+        confetti.remove();
+        style.remove();
+      }, duration * 1000);
+    }, i * 25);
+  }
+}
+
+function createSparkles() {
+  const celebration = document.getElementById('celebrationEffect');
+  
+  for (let i = 0; i < 20; i++) {
+    setTimeout(() => {
+      const sparkle = document.createElement('div');
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      const size = Math.random() * 6 + 3;
+      
+      sparkle.style.cssText = `
+        position: fixed;
+        left: ${x}px;
+        top: ${y}px;
+        width: ${size}px;
+        height: ${size}px;
+        background: #FFD700;
+        border-radius: 50%;
+        box-shadow: 0 0 20px #FFD700;
+        animation: sparkleShine 1s ease-out;
+        z-index: 99999;
+      `;
+      
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes sparkleShine {
+          0%, 100% { opacity: 0; transform: scale(0); }
+          50% { opacity: 1; transform: scale(2); }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      celebration.appendChild(sparkle);
+      
+      setTimeout(() => {
+        sparkle.remove();
+        style.remove();
+      }, 1000);
+    }, i * 100);
+  }
+}
+
+function createElegantRipples() {
+  const celebration = document.getElementById('celebrationEffect');
+  
+  for (let i = 0; i < 4; i++) {
+    setTimeout(() => {
+      const ripple = document.createElement('div');
+      ripple.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border: 3px solid #D4AF37;
+        border-radius: 50%;
+        animation: rippleExpand 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        z-index: 99999;
+      `;
+      
+      const keyframes = `
+        @keyframes rippleExpand {
+          0% {
+            width: 80px;
+            height: 80px;
+            opacity: 1;
+            box-shadow: 0 0 40px #D4AF37;
+          }
+          100% {
+            width: 700px;
+            height: 700px;
+            opacity: 0;
+            box-shadow: 0 0 0px #D4AF37;
+          }
+        }
+      `;
+      
+      const style = document.createElement('style');
+      style.textContent = keyframes;
+      document.head.appendChild(style);
+      
+      celebration.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+        style.remove();
+      }, 2500);
+    }, i * 250);
+  }
+}
+
+// ============================================================================
+// INITIALIZATION & FEEL-GOOD INTERACTIONS
+// ============================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  ConfigValidator.checkConfiguration();
+  
+  if (!NetworkHandler.isOnline()) {
+    NetworkHandler.showOfflineIndicator();
+  }
+  
+  // Input field listeners
+  ['fullName', 'mobile', 'email', 'address'].forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (field) {
+      field.addEventListener('input', () => {
+        ErrorHandler.clearValidationError(fieldId);
+      });
+      
+      // 🎉 Feel-good: Play soft sound when user starts typing
+      field.addEventListener('focus', () => {
+        playInputFocusSound();
+        field.style.transform = 'scale(1.02)';
+        field.style.transition = 'transform 0.3s ease';
+      });
+      
+      field.addEventListener('blur', () => {
+        field.style.transform = 'scale(1)';
+      });
+      
+      // 🎉 Feel-good: Celebrate when field is completed
+      field.addEventListener('blur', () => {
+        if (field.value.trim().length > 0) {
+          playFieldCompleteSound();
+        }
+      });
+    }
+  });
+  
+  // 🎉 Feel-good: Add hover sounds to all buttons
+  addButtonHoverEffects();
+  
+  // 🎉 Feel-good: Add particle trail cursor effect
+  addCursorTrail();
+  
+  // 🎉 Feel-good: Add scroll progress indicator
+  addScrollProgress();
+  
+  // 🎉 Feel-good: Celebrate page load
+  setTimeout(() => {
+    playWelcomePageSound();
+    showWelcomeSparkle();
+  }, 500);
+});
+
+// ============================================================================
+// 🎵 ADDITIONAL FEEL-GOOD SOUNDS
+// ============================================================================
+
+function playInputFocusSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.1);
+}
+
+function playFieldCompleteSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  
+  // Two-note success
+  [800, 1000].forEach((freq, index) => {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.15);
+    }, index * 40);
+  });
+}
+
+function playButtonHoverSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  osc.frequency.setValueAtTime(700, audioCtx.currentTime);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.08);
+}
+
+function playWelcomePageSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  
+  // Welcoming ascending chord
+  [523, 659, 784].forEach((freq, index) => {
+    setTimeout(() => {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      osc.type = 'sine';
+      
+      gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+      
+      osc.start(audioCtx.currentTime);
+      osc.stop(audioCtx.currentTime + 0.5);
+    }, index * 100);
+  });
+}
+
+// ============================================================================
+// 🎨 VISUAL FEEL-GOOD EFFECTS
+// ============================================================================
+
+function addButtonHoverEffects() {
+  const buttons = document.querySelectorAll('.luxury-btn, .back-btn, .offer-card, .service-card');
+  
+  buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      playButtonHoverSound();
+      
+      // Add a subtle glow pulse
+      button.style.transition = 'all 0.3s ease';
+      button.style.filter = 'brightness(1.1)';
+    });
+    
+    button.addEventListener('mouseleave', () => {
+      button.style.filter = 'brightness(1)';
+    });
+  });
+}
+
+function addCursorTrail() {
+  let particles = [];
+  const maxParticles = 15;
+  
+  document.addEventListener('mousemove', (e) => {
+    // Create particle at cursor position
+    const particle = document.createElement('div');
+    particle.style.cssText = `
+      position: fixed;
+      left: ${e.clientX}px;
+      top: ${e.clientY}px;
+      width: 6px;
+      height: 6px;
+      background: linear-gradient(135deg, var(--gold-main), var(--gold-metallic));
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      opacity: 0.6;
+      box-shadow: 0 0 10px var(--gold-main);
+      animation: particleFade 0.8s ease-out forwards;
+    `;
+    
+    document.body.appendChild(particle);
+    particles.push(particle);
+    
+    // Remove old particles
+    if (particles.length > maxParticles) {
+      const oldParticle = particles.shift();
+      if (oldParticle && oldParticle.parentNode) {
+        oldParticle.remove();
+      }
+    }
+    
+    // Clean up after animation
+    setTimeout(() => {
+      if (particle && particle.parentNode) {
+        particle.remove();
+      }
+    }, 800);
+  });
+  
+  // Add CSS animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes particleFade {
+      0% { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(0.3); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+function addScrollProgress() {
+  const progressBar = document.createElement('div');
+  progressBar.id = 'scrollProgress';
+  progressBar.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold-main), var(--gold-metallic));
+    z-index: 10000;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px var(--gold-main);
+  `;
+  document.body.appendChild(progressBar);
+  
+  window.addEventListener('scroll', () => {
+    const page = document.querySelector('.page.active');
+    if (!page) return;
+    
+    const scrollHeight = page.scrollHeight - page.clientHeight;
+    const scrolled = window.scrollY;
+    const progress = (scrolled / scrollHeight) * 100;
+    
+    progressBar.style.width = Math.min(progress, 100) + '%';
+    
+    // Play gentle sound at milestones
+    if (progress >= 25 && !progressBar.dataset.milestone25) {
+      progressBar.dataset.milestone25 = 'true';
+      playMilestoneSound();
+    }
+    if (progress >= 50 && !progressBar.dataset.milestone50) {
+      progressBar.dataset.milestone50 = 'true';
+      playMilestoneSound();
+    }
+    if (progress >= 75 && !progressBar.dataset.milestone75) {
+      progressBar.dataset.milestone75 = 'true';
+      playMilestoneSound();
+    }
+  });
+}
+
+function playMilestoneSound() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  
+  const audioCtx = new AudioContext();
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  
+  osc.frequency.setValueAtTime(880, audioCtx.currentTime);
+  osc.type = 'sine';
+  
+  gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+  
+  osc.start(audioCtx.currentTime);
+  osc.stop(audioCtx.currentTime + 0.2);
+}
+
+function showWelcomeSparkle() {
+  // Create sparkles around the header icon
+  const headerIcon = document.querySelector('.header-icon');
+  if (!headerIcon) return;
+  
+  const rect = headerIcon.getBoundingClientRect();
+  
+  for (let i = 0; i < 8; i++) {
+    setTimeout(() => {
+      const sparkle = document.createElement('div');
+      const angle = (Math.PI * 2 * i) / 8;
+      const distance = 50;
+      const x = rect.left + rect.width / 2 + Math.cos(angle) * distance;
+      const y = rect.top + rect.height / 2 + Math.sin(angle) * distance;
+      
+      sparkle.style.cssText = `
+        position: fixed;
+        left: ${x}px;
+        top: ${y}px;
+        width: 8px;
+        height: 8px;
+        background: var(--gold-metallic);
+        border-radius: 50%;
+        box-shadow: 0 0 15px var(--gold-main);
+        pointer-events: none;
+        z-index: 99999;
+        animation: sparkleAnimation 1s ease-out forwards;
+      `;
+      
+      document.body.appendChild(sparkle);
+      
+      setTimeout(() => sparkle.remove(), 1000);
+    }, i * 50);
+  }
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes sparkleAnimation {
+      0% { transform: scale(0); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(0.5); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// ============================================================================
+// 🎊 POSITIVE REINFORCEMENT MESSAGES
+// ============================================================================
+
+function showEncouragementMessage() {
+  const messages = [
+    "Great choice! 👏",
+    "Excellent selection! ⭐",
+    "Perfect! 💫",
+    "Smart decision! 🎯",
+    "You're doing great! 🌟",
+    "Looking good! ✨"
+  ];
+  
+  const message = messages[Math.floor(Math.random() * messages.length)];
+  
+  const toast = document.createElement('div');
+  toast.style.cssText = `
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold-main), var(--gold-metallic));
+    color: var(--navy-dark);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 13px;
+    z-index: 99998;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5);
+    animation: toastSlideUp 2s ease-out forwards;
+    pointer-events: none;
+  `;
+  toast.textContent = message;
+  
+  document.body.appendChild(toast);
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes toastSlideUp {
+      0% { opacity: 0; transform: translateX(-50%) translateY(30px); }
+      20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-30px); }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  setTimeout(() => toast.remove(), 2000);
+}
+
+// Add encouragement after selecting 3rd service
+let selectionCount = 0;
+const originalToggleService = toggleService;
+window.toggleService = function(element, serviceName) {
+  originalToggleService(element, serviceName);
+  
+  if (element.classList.contains('active')) {
+    selectionCount++;
+    if (selectionCount === 3) {
+      setTimeout(() => showEncouragementMessage(), 300);
+    }
+  } else {
+    selectionCount--;
+  }
+};
+</script>
+</body>
+</html>
